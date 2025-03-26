@@ -8,6 +8,13 @@ public class Base {
     public ArrayList listaPerfumes;
     public ArrayList listaSecundaria;
 
+    public ArrayList getListaSecundaria(){
+        return listaSecundaria;
+    }
+    public void setListaPerfumes(ArrayList listaPerfumes){
+        this.listaPerfumes = listaPerfumes;
+    }
+    
     public Base() {
         listaPerfumes = new ArrayList();
     }
@@ -90,9 +97,13 @@ public class Base {
     }
 
     public void ordenarPerfumes() {
-        listaSecundaria = listaPerfumes;
+        listaSecundaria = new ArrayList<>(listaPerfumes);
         listaPerfumes.sort(null);
         
+    }
+    public void desordenarPerfume(){
+        listaPerfumes.clear();
+        listaPerfumes.addAll(listaSecundaria);
     }
 
     public void pesquisar(String pesquisa) {
